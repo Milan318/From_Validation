@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +15,8 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 mt-5">
-                <form method="post" onsubmit="validate(); return false">
+            <div class="col-md-6">
+                <form action="" method="post" onsubmit="validate(); return false">
                     <h2>Sign-Up</h2>
                     <!-- username -->
                     <div class="mb-3">
@@ -38,10 +39,10 @@
                     </div>
                     <!-- gender -->
                     <div class="mb-3">
-                        <label class="form-label me-3">Gender</label>
+                        <label class="form-label">Gender</label>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="gender1">Male</label>
-                            <input type="radio" class="form-check-input " name="gender" id="gender1">
+                            <input type="radio" class="form-check-input ms-3" name="gender" id="gender1">
                         </div>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="gender2">Female</label>
@@ -51,18 +52,24 @@
                     </div>
                     <!-- hobby -->
                     <div class="mb-3">
-                        <label class="form-label me-3">Hobby</label>
+                        <label class="form-label">Hobby</label>
 
                         <div class="form-check form-check-inline">
-                            <label class="form-check-label" for="hobby1">Plying Cricket</label>
-                            <input class="form-check-input "  name="hobby" type="checkbox" value="" id="hobby1">
+                            <label class="form-check-label" for="hobby1">Cooking</label>
+                            <input class="form-check-input ms-3"  name="hobby" type="checkbox" value="" id="hobby1">
                         </div> 
                         <div class="form-check form-check-inline">
-                            <label class="form-check-label" for="hobby2">Plying Football</label>
+                            <label class="form-check-label" for="hobby2">Garding</label>
                             <input class="form-check-input"  name="hobby" type="checkbox" value="" id="hobby2">
                         </div>
                         <span class="d-none hobbyError text-danger"> Hobby is required</span>
 
+                    </div>
+                    <!-- date -->
+                    <div class="mb-3">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob">
+                        <span class="d-none dobError text-danger">Date of birth is required</span>
                     </div>
                     <button class="btn btn-primary" type="submit">Submit</button>
                 </form>
@@ -83,6 +90,8 @@
         let password = document.getElementById('password');
         let gender = document.querySelectorAll("input[name='gender']");
         let hobby = document.querySelectorAll("input[name='hobby']");
+        let dob = document.getElementById('dob');
+
 
         let validate = () => {
             // console.log(gender.checked[0]);
@@ -129,6 +138,14 @@
             else {
                 document.querySelector('.hobbyError').classList.add('d-none')
 
+            }
+            // date
+            if(dob.value.trim===""){
+                document.querySelector('.dobError').classList.remove('d-none')
+
+            }
+            else{
+                document.querySelector('.dobError').classList.add('d-none')
             }
         }
 
